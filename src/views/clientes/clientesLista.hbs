@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-between">
+    <div class="d-flex flex-column" id="listaClientes">
+        <form action="/clientes/buscar" method="POST"
+            class="pt-4 form-inline d-flex justify-content-center md-form form-sm mt-0">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input name="cedula" style="font-size: large;" class="p-4 form-control form-control-sm ml-3 w-75"
+                type="text" placeholder="Ingrese la cédula..." aria-label="Search" autocomplete="off" autofocus>
+        </form>
+        <div class="d-flex justify-content-center flex-wrap pt-4 pl-4" id="listaGeneral">
+            {{#each clientes}}
+            <div class="card mr-3 mb-3">
+                <img src="https://image.flaticon.com/icons/svg/848/848006.svg" style="width: 70px;"
+                    class="card-img-top mx-auto mt-2" alt="Imagen">
+                <div class="card-body">
+                    <h5 class="card-title">{{nombre}}</h5>
+                    <p class="card-text">Cédula: {{cedula}}</p>
+                    <p class="card-text">Dirección: {{direccion}}</p>
+                </div>
+                <div class="card-footer d-flex px-2">
+                    <a href="/clientes/edit/{{_id}}" class="btn btn-primary flex-grow-1 mr-2">Editar</a>
+                    <a href="/clientes/delete/{{_id}}" class="btn btn-danger flex-grow-1 mr-2">Eliminar</a>
+                    <a href="/pedidos/nuevo/{{_id}}" class="btn btn-success flex-grow-1">Nuevo pedido</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="acciones pt-4 pr-4 pl-2 d-flex flex-column">
+        <a href="/clientes/nuevo" class="btn btn-primary btn-block mb-3">
+            <img src="https://image.flaticon.com/icons/svg/3208/3208790.svg" class="mb-2" width="50px"
+                alt="Nuevo cliente">
+            <p>Nuevo cliente</p>
+        </a>
+        <a href="/clientes" class="btn btn-info btn-block mb-3">
+            <img src="https://image.flaticon.com/icons/svg/3094/3094700.svg" class="mb-2" width="50px" alt="Salir">
+            <p>Salir</p>
+        </a>
+        <a href="/" class="btn btn-light btn-block mb-3">
+            <img src="https://image.flaticon.com/icons/svg/609/609803.svg" class="mb-2" width="50px" alt="Home">
+            <p>Inicio</p>
+        </a>
+    </div>
+</div>

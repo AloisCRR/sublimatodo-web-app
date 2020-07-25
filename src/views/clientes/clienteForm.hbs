@@ -1,0 +1,33 @@
+<div class="row mt-5">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                {{#if nuevo}}
+                <form action="/clientes/nuevo" method="POST">
+                    {{else}}
+                    <form action="/clientes/edit/{{cliente._id}}" method="POST">
+                        {{/if}}
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input id="nombre" value="{{cliente.nombre}}" type="text" name="nombre"
+                                placeholder="Ejemplo: Alois Carrera" class="form-control" autofocus autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cedula">Cédula</label>
+                            <input id="cedula" value="{{cliente.cedula}}" type="text" name="cedula"
+                                placeholder="Ejemplo: 6-722-1687" class="form-control" autofocus autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion">Dirección</label>
+                            <input id="direccion" value="{{cliente.direccion}}" type="text" name="direccion"
+                                placeholder="Ejemplo: Aguadulce, Calle el tanque" class="form-control" autofocus
+                                autocomplete="off" required>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Crear</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
