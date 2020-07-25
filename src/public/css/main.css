@@ -1,0 +1,47 @@
+* {
+	box-sizing: border-box;
+}
+
+#col1,
+#col2,
+#col3,
+#col4 {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+a > img {
+	transition: all 0.2s ease-in-out;
+}
+
+a > img:hover {
+	cursor: pointer;
+	transform: scale(1.5);
+}
+
+#indexRow {
+	width: 100vw;
+}
+
+.lista {
+	flex: 6;
+}
+
+.menu {
+	flex: 1;
+}
+
+#listaClientes {
+	flex: 6;
+}
+
+.acciones {
+	flex: 1;
+}
+
+#listaGeneral > * {
+	flex: 0 0 25%;
+}
