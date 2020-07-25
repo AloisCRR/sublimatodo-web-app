@@ -1,0 +1,32 @@
+<div class="row mt-5">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form action="/clientes/edit/{{cliente._id}}" method="POST">
+                    <div class="form-group">
+                        <label for="descripcion">Descripcion</label>
+                        <textarea class="form-control" name="descripcion" id="descripcion" cols="10" rows="2"
+                            autocomplete="off" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de articulo</label>
+                        <select class="form-control" id="tipo">
+                            <option>Camiseta</option>
+                            <option>Taza</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad</label>
+                        <input id="cantidad" value="{{cliente.direccion}}" type="number" min="1" name="cantidad"
+                            placeholder="1" class="form-control" autofocus autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="entrega">Fecha prevista de entrega</label>
+                        <input id="entrega" class="form-control" type="date" autocomplete="off" required>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Crear</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

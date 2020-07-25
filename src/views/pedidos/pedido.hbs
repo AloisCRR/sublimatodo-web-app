@@ -1,0 +1,16 @@
+<div class="row mt-5">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form action="/pedidos/nuevo/{{id}}" method="POST">
+                    <div class="form-group">
+                        <label for="descripcion">Descripcion</label>
+                        <textarea placeholder="Opcional..." class="form-control" name="descripcion" id="descripcion"
+                            cols="10" rows="2" autocomplete="off" autofocus></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Crear</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

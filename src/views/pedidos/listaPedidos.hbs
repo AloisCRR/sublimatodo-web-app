@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-between">
+    <div class="lista d-flex flex-column">
+        <form action="/clientes/buscar" method="POST" class="d-flex form-inline justify-content-center mt-4 mb-4">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input name="cedula" style="font-size: large;" class="p-4 form-control form-control-sm ml-3 w-75"
+                type="text" placeholder="Ingrese la cédula..." aria-label="Search" autocomplete="off" autofocus>
+        </form>
+        <div class="list-group align-self-center w-75">
+            {{#each pedidos}}
+            <div class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{id_cliente.nombre}}, pedido #{{nro}}</h5>
+                    <small>3 days ago</small>
+                </div>
+                <p class="mt-3">{{descripcion}}
+                </p>
+                <div class="mt-3">
+                    <a href="/clientes/edit/{{_id}}" class="btn btn-primary mr-2">Editar</a>
+                    <a href="/pedidos/delete/{{_id}}" class="btn btn-danger mr-2">Eliminar</a>
+                    <a href="/clientes/delete/{{_id}}" class="btn btn-success mr-2">Ver pedido</a>
+                    <a href="/clientes/delete/{{_id}}" class="btn btn-warning">Agregar articulo</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="menu p-4">
+        <a href="/clientes/nuevo" class="btn btn-primary btn-block mb-3">
+            <img src="https://image.flaticon.com/icons/svg/3208/3208790.svg" class="mb-2" width="50px"
+                alt="Nuevo cliente">
+            <p>Nuevo cliente</p>
+        </a>
+        <a href="/clientes" class="btn btn-info btn-block mb-3">
+            <img src="https://image.flaticon.com/icons/svg/3094/3094700.svg" class="mb-2" width="50px" alt="Salir">
+            <p>Salir</p>
+        </a>
+        <a href="/" class="btn btn-light btn-block mb-3">
+            <img src="https://image.flaticon.com/icons/svg/609/609803.svg" class="mb-2" width="50px" alt="Home">
+            <p>Inicio</p>
+        </a>
+    </div>
+</div>
