@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between">
     <div class="lista d-flex flex-column">
-        <form action="/clientes/buscar" method="POST" class="d-flex form-inline justify-content-center mt-4 mb-4">
+        <form action="/pedidos/buscar" method="POST" class="d-flex form-inline justify-content-center mt-4 mb-4">
             <i class="fas fa-search" aria-hidden="true"></i>
             <input name="cedula" style="font-size: large;" class="p-4 form-control form-control-sm ml-3 w-75"
                 type="text" placeholder="Ingrese la cédula..." aria-label="Search" autocomplete="off" autofocus>
@@ -9,8 +9,8 @@
             {{#each pedidos}}
             <div class="list-group-item">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-0">{{id_cliente.nombre}}, pedido #{{nro}}</h5>
-                    <h5>{{total}}</h5>
+                    <h5 class="mb-0">{{id_cliente.nombre}} (Pedido #{{nro}})</h5>
+                    <h5 class="mb-0">Importe total: B/.{{total}}</h5>
                     <small>3 days ago</small>
                 </div>
                 <p class="mt-3 mb-3">{{descripcion}}
@@ -26,18 +26,21 @@
         </div>
     </div>
     <div class="menu p-4">
-        <a href="/clientes/nuevo" class="d-flex justify-content-center btn btn-primary btn-block mb-3">
-            <img src="https://image.flaticon.com/icons/svg/3208/3208790.svg" class="mb-2 w-100" width="50px"
+        <a href="/clientes" title="Debe seleccionar un cliente"
+            class="d-flex flex-column align-items-center btn btn-primary btn-block mb-3">
+            <img src="https://image.flaticon.com/icons/svg/3225/3225094.svg" class="mb-2" width="50px"
                 alt="Nuevo cliente">
-            <p>Nuevo cliente</p>
+            <p class="mb-0">Nuevo pedido</p>
         </a>
-        <a href="/clientes" class="d-flex justify-content-center btn btn-info btn-block mb-3">
-            <img src="https://image.flaticon.com/icons/svg/3094/3094700.svg" class="mb-2" width="50px" alt="Salir">
-            <p>Salir</p>
+        <a href="/pedidos/" class="d-flex flex-column align-items-center btn btn-success btn-block mb-3">
+            <img src="https://image.flaticon.com/icons/svg/3142/3142387.svg" class="mb-2" width="50px"
+                alt="Nuevo cliente">
+            <p class="mb-0">Lista de pedidos</p>
         </a>
-        <a href="/" class="d-flex justify-content-center btn btn-light btn-block mb-3">
-            <img src="https://image.flaticon.com/icons/svg/609/609803.svg" class="mb-2" width="50px" alt="Home">
-            <p>Inicio</p>
+        <a href="/" class="d-flex flex-column align-items-center btn btn-secondary btn-block mb-3">
+            <img src="https://image.flaticon.com/icons/svg/609/609803.svg" class="mb-2" width="50px"
+                alt="Nuevo cliente">
+            <p class="mb-0">Inicio</p>
         </a>
     </div>
 </div>

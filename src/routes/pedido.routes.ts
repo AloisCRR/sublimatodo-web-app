@@ -17,4 +17,6 @@ router
 
 router.route('/items/:id').get(template.listarItems);
 
+router.route('/buscar').post(template.buscarPedidos);
+
 export default router;

@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import Pedido from '../models/pedidos';
 import DetallePedido from '../models/detallePedidos';
 import Producto from '../models/producto';
+import Cliente from '../models/clientes';
 
 export async function dashboard(_: Request, res: Response): Promise<void> {
 	const pedidos = await Pedido.find()
@@ -101,11 +102,30 @@ export async function listarItems(req: Request, res: Response): Promise<void> {
 	const items = await DetallePedido.find({ id_pedido: id })
 		.populate({
 			path: 'tipo',
-			select: 'precio_venta descripcion',
+			select: 'precio_venta descripcion imagen',
 		})
 		.lean();
 
-	console.log(items);
-
 	res.status(200).render('pedidos/itemsPedido', { items });
+}
+
+export async function buscarPedidos(
+	req: Request,
+	res: Response
+): Promise<void> {
+	const { cedula } = req.body;
+
+	const cliente = await Cliente.findOne({
+		cedula: {
+			$regex: '.*' + cedula + '.*',
+		},
+	}).lean();
+
+	const pedidos = await Pedido.find({
+		id_cliente: String(cliente?._id),
+	})
+		.sort({ createdAt: 'desc' })
+		.lean();
+
+	res.status(200).render('pedidos/listaPedidos', { pedidos });
 }

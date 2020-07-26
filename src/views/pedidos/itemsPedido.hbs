@@ -1,14 +1,8 @@
 <div class="d-flex justify-content-between">
-    <div class="pt-4 d-flex flex-wrap justify-content-center pl-4 w-75">
+    <div class="lista pt-4 d-flex flex-wrap justify-content-center pl-4 w-75">
         {{#each items}}
         <div class="card mr-4 mb-4" style="width: 18rem;">
-            {{#eq tipo.descripcion 'Camiseta'}}
-            <img src="https://mms-images-prod.imgix.net/mms/images/catalog/6f38c951f2eb06a5c60c994971941281/colors/116200/views/alt/front_medium_extended.png?dpr=1.2&w=320"
-                class="card-img-top" alt="Imagen ilustrativa" height="288px">
-            {{else}}
-            <img src="https://blackkaps.com/wp-content/uploads/2018/08/BlackKaps.com-Black-Kaps-Coffee-Mug-Pot-Head-Front-View-Mug-Mockup-510x510.png"
-                class="card-img-top" alt="Imagen ilustrativa" height="288px">
-            {{/eq}}
+            <img src="{{tipo.imagen}}" class="card-img-top" alt="Imagen ilustrativa" height="250px">
             <div class="card-body">
                 <h5 class="card-title">{{tipo.descripcion}}</h5>
                 <p class="card-text">{{descripcion}}</p>
