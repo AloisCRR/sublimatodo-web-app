@@ -2,7 +2,7 @@
     <div class="col-md-4 offset-md-4">
         <div class="card">
             <div class="card-body">
-                <form action="/clientes/edit/{{cliente._id}}" method="POST">
+                <form action="/pedidos/detalle/{{id}}" method="POST">
                     <div class="form-group">
                         <label for="descripcion">Descripcion</label>
                         <textarea class="form-control" name="descripcion" id="descripcion" cols="10" rows="2"
@@ -10,9 +10,10 @@
                     </div>
                     <div class="form-group">
                         <label for="tipo">Tipo de articulo</label>
-                        <select class="form-control" id="tipo">
-                            <option>Camiseta</option>
-                            <option>Taza</option>
+                        <select class="form-control" id="tipo" name="tipo">
+                            {{#each productos}}
+                            <option value="{{_id}}">{{descripcion}}</option>
+                            {{/each}}
                         </select>
                     </div>
                     <div class="form-group">
@@ -22,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label for="entrega">Fecha prevista de entrega</label>
-                        <input id="entrega" class="form-control" type="date" autocomplete="off" required>
+                        <input id="entrega" name="entrega" class="form-control" type="date" autocomplete="off" required>
                     </div>
                     <button type="submit" class="btn btn-success btn-block">Crear</button>
                 </form>

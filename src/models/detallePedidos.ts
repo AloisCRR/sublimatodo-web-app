@@ -6,9 +6,9 @@ const detallePedido = new Schema(
 			type: String,
 			required: true,
 		},
-		id_cliente: {
-			type: String,
-			required: true,
+		id_pedido: {
+			type: Schema.Types.ObjectId,
+			ref: 'Pedido',
 		},
 		cantidad: {
 			type: Number,
@@ -19,9 +19,8 @@ const detallePedido = new Schema(
 			required: true,
 		},
 		tipo: {
-			type: String,
-			enum: ['Camiseta', 'Taza'],
-			required: true,
+			type: Schema.Types.ObjectId,
+			ref: 'Producto',
 		},
 	},
 	{

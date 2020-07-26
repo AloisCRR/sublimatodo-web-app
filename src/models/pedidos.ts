@@ -15,11 +15,13 @@ const Pedido = new Schema(
 		},
 		total: {
 			type: Number,
+			default: 0,
 		},
 		nro: {
 			type: Number,
 			default: 0,
 		},
+		//items: [{ type: Schema.Types.ObjectId, ref: 'DetallePedido' }],
 	},
 	{
 		timestamps: true,

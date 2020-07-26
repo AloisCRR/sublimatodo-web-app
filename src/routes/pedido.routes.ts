@@ -10,5 +10,11 @@ router
 	.post(template.guardarPedido);
 
 router.route('/delete/:id').get(template.eliminarPedido);
+router
+	.route('/detalle/:id')
+	.get(template.agregarItem)
+	.post(template.guardarItem);
+
+router.route('/items/:id').get(template.listarItems);
 
 export default router;
