@@ -1,0 +1,27 @@
+<div class="row mt-5" style="max-width: 100vw;">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                {{#if editar}}
+                <form action="/puestos/editar/{{puesto._id}}" method="POST">
+                    {{else}}
+                    <form action="/puestos/nuevo" method="POST">
+                        {{/if}}
+                        <div class="form-group">
+                            <label for="descripcion">Descripcion</label>
+                            <input value="{{puesto.descripcion}}"
+                                placeholder="Ejemplo: Sublimación, impresiones, diseño..." type="text"
+                                class="form-control" name="descripcion" id="descripcion" autocomplete="off" required
+                                autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="pagohora">Pago por hora</label>
+                            <input value="{{puesto.pagoHora}}" placeholder="Ejemplo: 4" type="number" min="1"
+                                class="form-control" name="pagoHora" id="pagohora" autocomplete="off" required>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Crear</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
