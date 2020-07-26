@@ -1,0 +1,49 @@
+<div class="row mt-5" style="max-width: 100vw;">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                {{#if editar}}
+                <form action="/empleados/editar/{{empleado._id}}" method="POST">
+                    {{else}}
+                    <form action="/empleados/nuevo" method="POST">
+                        {{/if}}
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input value="{{empleado.nombre}}" placeholder="Ejemplo: Javier Lomas Turbas" type="text"
+                                class="form-control" name="nombre" id="nombre" autocomplete="off" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="cedula">Cedula</label>
+                            <input value="{{empleado.cedula}}" placeholder="Ejemplo: 3-234-5643" type="text"
+                                class="form-control" name="cedula" id="cedula" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion">Direccion</label>
+                            <input value="{{empleado.direccion}}" placeholder="Ejemplo: Barriada Altos, Aguadulce"
+                                type="text" class="form-control" name="direccion" id="direccion" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input value="{{empleado.email}}" placeholder="Ejemplo: j.lmo@gmail.com (Opcional)"
+                                type="email" class="form-control" name="email" id="email" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="contacto">Contacto</label>
+                            <input value="{{empleado.contacto}}" placeholder="Ejemplo: 6433-2345" type="text"
+                                class="form-control" name="contacto" id="contacto" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="puesto">Puesto</label>
+                            <select class="form-control" id="puesto" name="puesto">
+                                {{#each puestos}}
+                                <option value="{{_id}}">{{descripcion}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Crear</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>

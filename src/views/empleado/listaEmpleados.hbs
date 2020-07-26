@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-between">
+    <div class="d-flex flex-column lista">
+        <form action="/empleados/buscar" method="POST"
+            class="pt-4 form-inline d-flex justify-content-center md-form form-sm mt-0">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input name="cedula" style="font-size: large;" class="p-4 form-control form-control-sm ml-3 w-75"
+                type="text" placeholder="Ingrese la cédula..." aria-label="Search" autocomplete="off" autofocus>
+        </form>
+        <div class="pt-4 d-flex flex-wrap justify-content-center pl-4 w-75 align-self-center" id="listaGeneral">
+            {{#each empleados}}
+            <div class="card mr-4 mb-4" style="width: 18rem;">
+                <img src="{{imagen}}" class="p-4 card-img-top" style="max-width: 250;" alt="Imagen ilustrativa">
+                <div class="card-body p-3">
+                    <h3 class="card-title mb-0">{{nombre}}</h3>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Cedula: {{cedula}}</li>
+                    <li class="list-group-item">Direccion: {{direccion}}</li>
+                    <li class="list-group-item">Email: {{email}}</li>
+                    <li class="list-group-item">Contacto: {{contacto}}</li>
+                    <li class="list-group-item">Puesto: {{puesto.descripcion}}</li>
+                </ul>
+                <div class="card-body d-flex justify-content-center align-items-center">
+                    <a href="/empleados/editar/{{_id}}" class="card-link">Editar</a>
+                    <a href="/empleados/borrar/{{_id}}" class="card-link">Eliminar</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="menu pt-4 pr-4">
+        <a href="/empleados/nuevo" class="d-flex flex-column align-items-center btn btn-primary btn-block mb-3">
+            <img src="https://image.flaticon.com/icons/svg/2898/2898378.svg" class="mb-2" width="50px"
+                alt="Nuevo cliente">
+            <p class="mb-0">Nuevo empleado</p>
+        </a>
+        <a href="/puestos" class="d-flex flex-column align-items-center btn btn-info btn-block mb-3">
+            <img src="https://image.flaticon.com/icons/svg/265/265667.svg" class="mb-2" width="50px" alt="Salir">
+            <p class="mb-0">Puestos de trabajo</p>
+        </a>
+        <a href="/empleados" class="d-flex flex-column align-items-center btn btn-success btn-block mb-3">
+            <img src="https://image.flaticon.com/icons/svg/3094/3094700.svg" class="mb-2" width="50px" alt="Salir">
+            <p class="mb-0">Lista de empleados</p>
+        </a>
+        <a href="/" class="d-flex flex-column align-items-center btn btn-light btn-block mb-3">
+            <img src="https://image.flaticon.com/icons/svg/609/609803.svg" class="mb-2" width="50px" alt="Home">
+            <p class="mb-0">Inicio</p>
+        </a>
+    </div>
+</div>
