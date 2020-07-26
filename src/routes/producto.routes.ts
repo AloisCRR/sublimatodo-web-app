@@ -12,4 +12,7 @@ router
 	})
 	.post(db.nuevoProducto);
 
+router.route('/borrar/:id').get(db.borrarProducto);
+router.route('/editar/:id').get(db.editarProducto).post(db.guardarProducto);
+
 export default router;

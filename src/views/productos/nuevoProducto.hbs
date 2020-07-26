@@ -2,30 +2,43 @@
     <div class="col-md-4 offset-md-4">
         <div class="card">
             <div class="card-body">
-                <form action="/productos/nuevo" method="POST">
-                    <div class="form-group">
-                        <label for="descripcion">Descripcion</label>
-                        <textarea placeholder="Descripción del nuevo producto..." class="form-control"
-                            name="descripcion" id="descripcion" cols="10" rows="2" autocomplete="off"
-                            required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="cantidad">Cantidad</label>
-                        <input id="cantidad" value="{{cliente.direccion}}" type="number" min="1" name="cantidad"
-                            placeholder="Ejemplo: 2" class="form-control" autofocus autocomplete="off" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="costo">Costo</label>
-                        <input id="costo" value="{{cliente.direccion}}" type="number" min="1" name="costo"
-                            placeholder="Ejemplo: 2.50" class="form-control" autofocus autocomplete="off" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="precioVenta">Precio venta</label>
-                        <input id="precioVenta" value="{{cliente.direccion}}" type="number" min="1" name="precio_venta"
-                            placeholder="Ejemplo: 3.50" class="form-control" autofocus autocomplete="off" required>
-                    </div>
-                    <button type="submit" class="btn btn-success btn-block">Crear</button>
-                </form>
+                {{#if editar}}
+                <form action="/productos/editar/{{producto._id}}" method="POST">
+                    {{else}}
+                    <form action="/productos/nuevo" method="POST">
+                        {{/if}}
+                        <div class="form-group">
+                            <label for="descripcion">Descripcion</label>
+                            <textarea placeholder="Descripción del nuevo producto..." class="form-control"
+                                name="descripcion" id="descripcion" cols="10" rows="2" autocomplete="off" required
+                                autofocus>{{producto.descripcion}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="imagen">Imagen</label>
+                            <input value="{{producto.imagen}}"
+                                placeholder="Ingrese la url de una imagen valida... (Opcional)" type="text"
+                                class="form-control" name="imagen" id="imagen" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="cantidad">Cantidad</label>
+                            <input value="{{producto.cantidad}}" id="cantidad" value="{{cliente.direccion}}"
+                                type="number" min="1" name="cantidad" placeholder="Ejemplo: 2" class="form-control"
+                                autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="costo">Costo</label>
+                            <input value="{{producto.costo}}" id="costo" value="{{cliente.direccion}}" type="number"
+                                min="1" name="costo" placeholder="Ejemplo: 2.50" class="form-control" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="precioVenta">Precio venta</label>
+                            <input value="{{producto.precio_venta}}" id="precioVenta" value="{{cliente.direccion}}"
+                                type="number" min="1" name="precio_venta" placeholder="Ejemplo: 3.50"
+                                class="form-control" autocomplete="off" required>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Crear</button>
+                    </form>
             </div>
         </div>
     </div>
