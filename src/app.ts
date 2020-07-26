@@ -2,11 +2,13 @@ import express from 'express';
 import path from 'path';
 import hbs from 'express-handlebars';
 import { Server } from 'http';
+import multihelpers from 'handlebars-helpers';
 
 // Rutas
 import index from './routes/index.routes';
 import pedidos from './routes/pedido.routes';
 import clientes from './routes/cliente.routes';
+import producto from './routes/producto.routes';
 
 class Application {
 	app: express.Application;
@@ -30,6 +32,7 @@ class Application {
 		this.app.use('/', index);
 		this.app.use('/pedidos', pedidos);
 		this.app.use('/clientes', clientes);
+		this.app.use('/productos', producto);
 	}
 
 	settings(): void {
@@ -42,6 +45,7 @@ class Application {
 				partialsDir: path.join(this.app.get('views'), 'partials'),
 				defaultLayout: 'main',
 				extname: '.hbs',
+				helpers: multihelpers(),
 			})
 		);
 		this.app.set('view engine', '.hbs');
