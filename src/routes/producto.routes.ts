@@ -19,4 +19,6 @@ router
 	.get(db.editarProducto)
 	.post(db.guardarProducto);
 
+router.route('/_').get(db.dashboardBasic);
+
 export default router;

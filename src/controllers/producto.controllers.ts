@@ -13,6 +13,17 @@ export async function dashboard(_: Request, res: Response): Promise<void> {
 	res.status(200).render('productos/listaProductos', { productos });
 }
 
+export async function dashboardBasic(_: Request, res: Response): Promise<void> {
+	const productos = await Producto.find()
+		.populate({
+			path: 'proveedor',
+			select: 'nombre',
+		})
+		.lean();
+
+	res.status(200).render('productos/productosUsuario', { productos });
+}
+
 export async function nuevoProducto(
 	req: Request,
 	res: Response
