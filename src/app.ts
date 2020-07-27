@@ -9,6 +9,10 @@ import index from './routes/index.routes';
 import pedidos from './routes/pedido.routes';
 import clientes from './routes/cliente.routes';
 import producto from './routes/producto.routes';
+import administrador from './routes/administrador.routes';
+import empleados from './routes/empleado.routes';
+import puestos from './routes/puesto.routes';
+import proveedores from './routes/proveedor.routes';
 
 class Application {
 	app: express.Application;
@@ -33,6 +37,10 @@ class Application {
 		this.app.use('/pedidos', pedidos);
 		this.app.use('/clientes', clientes);
 		this.app.use('/productos', producto);
+		this.app.use('/administrador', administrador);
+		this.app.use('/empleados', empleados);
+		this.app.use('/puestos', puestos);
+		this.app.use('/proveedores', proveedores);
 	}
 
 	settings(): void {
