@@ -34,6 +34,12 @@
                                 class="form-control" name="contacto" id="contacto" autocomplete="off" required>
                         </div>
                         <div class="form-group">
+                            <label for="imagen">Imagen</label>
+                            <input value="{{empleado.imagen}}"
+                                placeholder="Debe ingresar la url de una imagen válida..." type="text"
+                                class="form-control" name="imagen" id="imagen" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
                             <label for="puesto">Puesto</label>
                             <select class="form-control" id="puesto" name="puesto">
                                 {{#each puestos}}
