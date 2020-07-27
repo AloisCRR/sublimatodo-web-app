@@ -9,6 +9,11 @@ router
 	.get(template.nuevoPedido)
 	.post(template.guardarPedido);
 
+router
+	.route('/editar/:id')
+	.get(template.editarPedido)
+	.post(template.guardarEdicion);
+
 router.route('/delete/:id').get(template.eliminarPedido);
 router
 	.route('/detalle/:id')
@@ -16,6 +21,8 @@ router
 	.post(template.guardarItem);
 
 router.route('/items/:id').get(template.listarItems);
+
+router.route('/abono/:id').get(template.nuevoAbono).post(template.guardarAbono);
 
 router.route('/buscar').post(template.buscarPedidos);
 

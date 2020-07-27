@@ -13,6 +13,7 @@ export async function dashboard(_: Request, res: Response): Promise<void> {
 		})
 		.sort({ createdAt: 'desc' })
 		.lean();
+
 	res.status(200).render('pedidos/listaPedidos', { pedidos });
 }
 
@@ -44,6 +45,27 @@ export async function guardarPedido(
 	);
 
 	res.status(201).redirect('/pedidos');
+}
+
+export async function editarPedido(req: Request, res: Response): Promise<void> {
+	const { id } = req.params;
+
+	const pedidos = await Pedido.findOne({ _id: id }).lean();
+
+	res.status(200).render('pedidos/pedido', { pedidos, editar: true, id });
+}
+
+export async function guardarEdicion(
+	req: Request,
+	res: Response
+): Promise<void> {
+	const { id } = req.params;
+
+	const { descripcion } = req.body;
+
+	await Pedido.updateOne({ _id: id }, { descripcion: String(descripcion) });
+
+	res.status(200).redirect('/pedidos');
 }
 
 export async function eliminarPedido(
@@ -128,4 +150,27 @@ export async function buscarPedidos(
 		.lean();
 
 	res.status(200).render('pedidos/listaPedidos', { pedidos });
+}
+
+export function nuevoAbono(req: Request, res: Response): void {
+	const { id } = req.params;
+
+	res.status(200).render('pedidos/abonoForm', { id });
+}
+
+export async function guardarAbono(req: Request, res: Response): Promise<void> {
+	const { id } = req.params;
+
+	const { abono } = req.body;
+
+	await Pedido.updateOne(
+		{ _id: id },
+		{
+			$inc: {
+				abono: parseInt(abono),
+			},
+		}
+	);
+
+	res.status(200).redirect('/pedidos');
 }

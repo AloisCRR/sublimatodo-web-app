@@ -17,6 +17,10 @@ const Pedido = new Schema(
 			type: Number,
 			default: 0,
 		},
+		abono: {
+			type: Number,
+			default: 0,
+		},
 		nro: {
 			type: Number,
 			default: 0,
