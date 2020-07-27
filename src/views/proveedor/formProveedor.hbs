@@ -1,0 +1,41 @@
+<div class="row mt-5" style="max-width: 100vw;">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                {{#if editar}}
+                <form action="/proveedores/editar/{{proveedor._id}}" method="POST">
+                    {{else}}
+                    <form action="/proveedores/nuevo" method="POST">
+                        {{/if}}
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input value="{{proveedor.nombre}}" placeholder="Ejemplo: Aliexpress" type="text"
+                                class="form-control" name="nombre" id="nombre" autocomplete="off" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion">Direccion</label>
+                            <input value="{{proveedor.direccion}}" placeholder="Ejemplo: Internet (China)" type="text"
+                                class="form-control" name="direccion" id="direccion" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input value="{{proveedor.email}}" placeholder="Ejemplo: aliexpress@support.com (Opcional)"
+                                type="email" class="form-control" name="email" id="email" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="contacto">Contacto</label>
+                            <input value="{{proveedor.contacto}}" placeholder="Ejemplo: No necesario" type="text"
+                                class="form-control" name="contacto" id="contacto" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="imagen">Imagen</label>
+                            <input value="{{proveedor.imagen}}"
+                                placeholder="Url válida de una imagen de internet... (Opcional)" type="text"
+                                class="form-control" name="imagen" id="imagen" autocomplete="off">
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Crear</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
