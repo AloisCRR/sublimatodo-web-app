@@ -109,11 +109,23 @@ export async function guardarItem(req: Request, res: Response): Promise<void> {
 		})
 		.lean();
 
-	await Pedido.findByIdAndUpdate(id, {
-		$inc: {
-			total: (item as any).tipo.precio_venta * (item as any).cantidad,
-		},
-	});
+	await Pedido.updateOne(
+		{ _id: id },
+		{
+			$inc: {
+				total: (item as any).tipo.precio_venta * (item as any).cantidad,
+			},
+		}
+	);
+
+	await Producto.updateOne(
+		{ _id: String((item as any).tipo._id) },
+		{
+			$inc: {
+				cantidad: (item as any).cantidad * -1,
+			},
+		}
+	);
 
 	res.status(201).redirect('/pedidos');
 }
@@ -195,6 +207,15 @@ export async function eliminarItem(req: Request, res: Response): Promise<void> {
 					(item as any).tipo.precio_venta *
 					(item as any).cantidad *
 					-1,
+			},
+		}
+	);
+
+	await Producto.updateOne(
+		{ _id: String((item as any).tipo._id) },
+		{
+			$inc: {
+				cantidad: parseInt((item as any).cantidad),
 			},
 		}
 	);
