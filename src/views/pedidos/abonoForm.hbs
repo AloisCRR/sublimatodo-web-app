@@ -1,0 +1,16 @@
+<div class="row mt-5">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form action="/pedidos/abono/{{id}}" method="POST">
+                    <div class="form-group">
+                        <label for="abono">Abono</label>
+                        <input id="abono" name="abono" placeholder="Introduzca un numero menor al monto total..."
+                            class="form-control" type="number" min="1" autocomplete="off" required autofocus>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Crear</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,7 +2,7 @@
     <div class="lista pt-4 d-flex flex-wrap justify-content-center pl-4 w-75">
         {{#each items}}
         <div class="card mr-4 mb-4" style="width: 18rem;">
-            <img src="{{tipo.imagen}}" class="card-img-top" alt="Imagen ilustrativa" height="250px">
+            {{!-- <img src="{{tipo.imagen}}" class="card-img-top" alt="Imagen ilustrativa" height="250px"> --}}
             <div class="card-body">
                 <h5 class="card-title">{{tipo.descripcion}}</h5>
                 <p class="card-text">{{descripcion}}</p>
@@ -20,18 +20,9 @@
         {{/each}}
     </div>
     <div class="menu pt-4 pr-4">
-        <a href="/clientes/nuevo" class="btn btn-primary btn-block mb-3">
-            <img src="https://image.flaticon.com/icons/svg/3208/3208790.svg" class="mb-2" width="50px"
-                alt="Nuevo cliente">
-            <p>Nuevo cliente</p>
-        </a>
-        <a href="/clientes" class="btn btn-info btn-block mb-3">
+        <a href="/pedidos" class="btn btn-info btn-block mb-3">
             <img src="https://image.flaticon.com/icons/svg/3094/3094700.svg" class="mb-2" width="50px" alt="Salir">
             <p>Salir</p>
-        </a>
-        <a href="/" class="btn btn-light btn-block mb-3">
-            <img src="https://image.flaticon.com/icons/svg/609/609803.svg" class="mb-2" width="50px" alt="Home">
-            <p>Inicio</p>
         </a>
     </div>
 </div>
