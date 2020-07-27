@@ -128,7 +128,7 @@ export async function listarItems(req: Request, res: Response): Promise<void> {
 		})
 		.lean();
 
-	res.status(200).render('pedidos/itemsPedido', { items });
+	res.status(200).render('pedidos/itemsPedido', { items, id });
 }
 
 export async function buscarPedidos(
@@ -171,6 +171,37 @@ export async function guardarAbono(req: Request, res: Response): Promise<void> {
 			},
 		}
 	);
+
+	res.status(200).redirect('/pedidos');
+}
+
+export async function eliminarItem(req: Request, res: Response): Promise<void> {
+	const { id, pedido } = req.params;
+
+	const item = await DetallePedido.findOne({
+		_id: id,
+	})
+		.populate({
+			path: 'tipo',
+			select: 'precio_venta descripcion',
+		})
+		.lean();
+
+	await Pedido.updateOne(
+		{ _id: pedido },
+		{
+			$inc: {
+				total:
+					(item as any).tipo.precio_venta *
+					(item as any).cantidad *
+					-1,
+			},
+		}
+	);
+
+	await DetallePedido.deleteOne({
+		_id: id,
+	});
 
 	res.status(200).redirect('/pedidos');
 }

@@ -26,4 +26,6 @@ router.route('/abono/:id').get(template.nuevoAbono).post(template.guardarAbono);
 
 router.route('/buscar').post(template.buscarPedidos);
 
+router.route('/eliminarItem/:id/:pedido').get(template.eliminarItem);
+
 export default router;

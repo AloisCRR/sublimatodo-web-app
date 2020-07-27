@@ -2,8 +2,8 @@
     <div class="lista pt-4 d-flex flex-wrap justify-content-center pl-4 w-75">
         {{#each productos}}
         <div class="card mr-4 mb-4" style="width: 18rem;">
-            <img src="{{imagen}}" class="p-4 card-img-top" style="max-width: 250;" alt="Imagen ilustrativa">
-            <div class="card-body p-3">
+            {{!-- <img src="{{imagen}}" class="p-4 card-img-top" style="max-width: 250;" alt="Imagen ilustrativa"> --}}
+            <div class="card-body d-flex justify-content-center align-items-center px-3 pt-3 pb-0">
                 <h3 class="card-title mb-0">{{descripcion}}</h3>
             </div>
             <ul class="list-group list-group-flush">
@@ -16,7 +16,7 @@
                 <li class="list-group-item">Proveedor: <span style="font-style: italic;">Proveedor eliminado</span></li>
                 {{/if}}
             </ul>
-            <div class="card-body d-flex justify-content-center">
+            <div class="p-3 d-flex justify-content-center">
                 <a href="/productos/editar/{{_id}}/{{proveedor._id}}" class="card-link">Editar</a>
                 <a href="/productos/borrar/{{_id}}" class="card-link">Eliminar</a>
             </div>
