@@ -6,13 +6,17 @@ const router = Router();
 router.route('/').get(db.dashboard);
 
 router
-	.route('/nuevo')
-	.get((_: Request, res: Response) => {
-		res.status(200).render('productos/nuevoProducto');
+	.route('/nuevo/:proveedor')
+	.get((req: Request, res: Response) => {
+		const { proveedor } = req.params;
+		res.status(200).render('productos/nuevoProducto', { proveedor });
 	})
 	.post(db.nuevoProducto);
 
 router.route('/borrar/:id').get(db.borrarProducto);
-router.route('/editar/:id').get(db.editarProducto).post(db.guardarProducto);
+router
+	.route('/editar/:id/:proveedor')
+	.get(db.editarProducto)
+	.post(db.guardarProducto);
 
 export default router;

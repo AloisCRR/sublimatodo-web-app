@@ -3,9 +3,9 @@
         <div class="card">
             <div class="card-body">
                 {{#if editar}}
-                <form action="/productos/editar/{{producto._id}}" method="POST">
+                <form action="/productos/editar/{{producto._id}}/{{proveedor}}" method="POST">
                     {{else}}
-                    <form action="/productos/nuevo" method="POST">
+                    <form action="/productos/nuevo/{{proveedor}}" method="POST">
                         {{/if}}
                         <div class="form-group">
                             <label for="descripcion">Descripcion</label>

@@ -10,16 +10,22 @@
                 <li class="list-group-item">Cantidad: {{cantidad}}</li>
                 <li class="list-group-item">Costo: B/.{{costo}}</li>
                 <li class="list-group-item">Precio venta: B/.{{precio_venta}}</li>
+                {{#if proveedor.nombre}}
+                <li class="list-group-item">Proveedor: {{proveedor.nombre}}</li>
+                {{else}}
+                <li class="list-group-item">Proveedor: <span style="font-style: italic;">Proveedor eliminado</span></li>
+                {{/if}}
             </ul>
             <div class="card-body d-flex justify-content-center">
-                <a href="/productos/editar/{{_id}}" class="card-link">Editar</a>
+                <a href="/productos/editar/{{_id}}/{{proveedor._id}}" class="card-link">Editar</a>
                 <a href="/productos/borrar/{{_id}}" class="card-link">Eliminar</a>
             </div>
         </div>
         {{/each}}
     </div>
     <div class="menu pt-4 pr-4">
-        <a href="/productos/nuevo" class="d-flex flex-column align-items-center btn btn-primary btn-block mb-3">
+        <a href="/proveedores" class="d-flex flex-column align-items-center btn btn-primary btn-block mb-3"
+            title="Debe seleccionar un proveedor primero">
             <img src="https://image.flaticon.com/icons/svg/2898/2898378.svg" class="mb-2" width="50px"
                 alt="Nuevo cliente">
             <p class="mb-0">Nuevo producto</p>
